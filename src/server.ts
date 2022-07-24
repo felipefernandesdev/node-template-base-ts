@@ -1,15 +1,17 @@
-import "dotenv/config"; // Configuration DOTENV
-import logger from "morgan";
-import express, { Request, Response } from "express";
+import 'dotenv/config'; // Configuration DOTENV
+import logger from 'morgan';
+import express, { Request, Response } from 'express';
+
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(logger("combined"));
+app.use(logger('combined'));
 
-app.get("/", (req: Request, res: Response) => {
+app.get('/', (req: Request, res: Response) => {
   res.json({
-    msg: "Bem vindo!",
+    msg: 'Welcome API Rest, created by Felipe Fernandes!'
   });
 });
 
-app.listen(3000, () => console.log(`API is running at port 3000`));
+app.listen(port, () => console.log(`API is running at port 3000`));
